@@ -1,33 +1,10 @@
 # mq-block
 
-
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
+## 快速开始
 
 ```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
+docker-compose up -d
+npm run dev
 ```
 
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+服务启动后，访问 home 页面，默认往两个消息队列里面添加消息，此时，由于 dev 模式只有一个 app worker 进程，导致后续的 web 请求被阻塞，q2 消息队列需要等 q1 消息队列处理完才能执行。
